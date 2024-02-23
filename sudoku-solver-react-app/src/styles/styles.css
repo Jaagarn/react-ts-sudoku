@@ -1,0 +1,59 @@
+.board-style {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    margin: auto;
+    max-width: fit-content;
+    max-height: fit-content;
+    margin-top: 5%;
+
+    input {
+        border: 1px solid darkgray;
+    }
+
+    input:focus {
+        position: relative;
+        border-width: 0px;
+    }
+
+    input:nth-child(3n) {
+        border-right: solid;
+        margin-left: -2px;
+    }
+
+    input:nth-child(3n+1) {
+        border-left: solid;
+    }
+
+    input:nth-child(n+19):nth-child(-n+27),
+    input:nth-child(n+46):nth-child(-n+54) {
+        border-bottom: solid;
+        margin-bottom: 2px;
+    }
+
+    input:nth-child(n+73):nth-child(-n+81) {
+        border-bottom: solid;
+    }
+
+    input:nth-child(n+0):nth-child(-n+9),
+    input:nth-child(n+28):nth-child(-n+36),
+    input:nth-child(n+55):nth-child(-n+63) {
+        border-top: solid;
+    }
+
+    input:nth-child(3n):focus,
+    input:nth-child(3n+1):focus,
+    input:nth-child(n+19):nth-child(-n+27):focus,
+    input:nth-child(n+46):nth-child(-n+54):focus,
+    input:nth-child(n+73):nth-child(-n+81):focus,
+    input:nth-child(n+0):nth-child(-n+9):focus,
+    input:nth-child(n+28):nth-child(-n+36):focus,
+    input:nth-child(n+55):nth-child(-n+63):focus {
+        border-width: 0px;
+    }
+}
+
+.cell-style {
+    text-align: center;
+    height: 4em;
+    width: 4em;
+}
