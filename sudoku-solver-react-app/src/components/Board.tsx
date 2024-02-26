@@ -1,6 +1,6 @@
 import { CellData } from "../solver/CellData";
 import { Cell } from "./Cell";
-import {arrayToCells} from "../helpers/CellParser"
+import { arrayToCells } from "../helpers/CellParser"
 import { valid_board_1 } from "../testdata/test_boards";
 
 const Board = () => {
