@@ -12,18 +12,6 @@ const valid_board_1_json: string = `
   0, 0, 5, 2, 0, 6, 3, 0, 0 
   ]}`;
 
-const valid_board_almost_solved: number[] = [
-    7, 8, 2, 4, 5, 6, 1, 9, 3,
-    4, 1, 3, 2, 7, 9, 5, 6, 0,
-    5, 9, 6, 8, 1, 3, 7, 2, 4,
-    8, 4, 1, 7, 3, 2, 6, 5, 9,
-    2, 6, 5, 9, 8, 1, 4, 3, 7,
-    3, 7, 9, 5, 6, 4, 2, 1, 8,
-    9, 2, 4, 6, 0, 8, 3, 7, 1,
-    1, 5, 8, 3, 2, 7, 9, 4, 6,
-    6, 3, 7, 1, 9, 5, 0, 8, 2
-];
-
 const valid_board_1: number[] = [
     3, 1, 6, 5, 0, 8, 4, 0, 0,
     5, 2, 9, 0, 0, 0, 0, 0, 0,
@@ -114,6 +102,18 @@ const valid_board_easy_sudoku_solution: number[] = [
     5, 9, 7, 4, 1, 6, 3, 2, 8,
     6, 8, 2, 3, 9, 7, 5, 1, 4,
     3, 1, 4, 5, 2, 8, 6, 9, 7
+];
+
+const valid_board_easy_sudoku_almost_solved: number[] = [
+    7, 6, 9, 2, 4, 1, 8, 5, 3,
+    8, 0, 3, 7, 6, 9, 2, 4, 1,
+    2, 4, 1, 8, 5, 3, 7, 6, 9,
+    9, 7, 6, 1, 3, 2, 4, 8, 5,
+    4, 2, 8, 9, 0, 5, 1, 3, 6,
+    1, 3, 5, 6, 8, 4, 9, 7, 2,
+    5, 9, 7, 4, 1, 6, 3, 2, 8,
+    6, 8, 2, 3, 9, 7, 5, 1, 4,
+    3, 1, 4, 5, 2, 8, 6, 9, 0
 ];
 
 const valid_board_hard_sudoku: number[] = [
@@ -231,7 +231,7 @@ const invalid_board_incorrect_integers_json: string = `
 `;
 
 export {
-    valid_board_1_json, valid_board_almost_solved, valid_board_1, valid_board_1_columns, valid_board_1_column_4, valid_board_1_square_2_2,
+    valid_board_1_json, valid_board_easy_sudoku_almost_solved, valid_board_1, valid_board_1_columns, valid_board_1_column_4, valid_board_1_square_2_2,
     valid_board_1_solution, valid_board_easy_sudoku, valid_board_easy_sudoku_solution,
     valid_board_expert_sudoku, valid_board_expert_sudoku_unverified, valid_board_hard_sudoku,
     valid_board_hard_sudoku_solution, invalid_board, invalid_board_json, invalid_board_1_solution,

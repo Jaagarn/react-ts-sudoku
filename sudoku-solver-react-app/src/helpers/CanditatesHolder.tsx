@@ -19,6 +19,10 @@ class CanditatesHolder {
     return this._canditates.values().next().value;
   }
 
+  public getCanditatesAmount(): number {
+    return this._canditates.size;
+  }
+
   constructor(x: number, y: number, canditates: Set<number>) {
     this.x = x;
     this.y = y;
