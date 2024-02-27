@@ -8,6 +8,6 @@ const canditatesEasy72: Set<number> = new Set<number>([5, 7]);
 const noCanditates: Set<number> = new Set<number>([]);
 
 describe('testing cooks', () => {
-  test('fnidAndFillCanditates does what it says', () => {
+  test('findAndFillCanditates does what it says', () => {
   })
 });

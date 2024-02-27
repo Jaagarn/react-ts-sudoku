@@ -3,7 +3,7 @@ import { getCanditates } from "./Calculations";
 import { CellData } from "./CellData";
 
 const findCanditates = (board: CellData[]): Array<CanditatesHolder> => {
-  let canditatesHolders = new Array<CanditatesHolder>;
+  let canditatesHolders = new Array<CanditatesHolder>();
   for(let i = 0; i < 81; i++) {
     let cell = board[i];
     if(cell.value !== 0)

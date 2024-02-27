@@ -1,7 +1,7 @@
 import { CellData } from "./CellData";
 
 const columns = (board: CellData[]): Array<number> => {
-  let columns = new Array<number>;
+  let columns = new Array<number>();
 
   for (let i = 0; i < 9; i++) {
     for (let j = 0; j < 9; j++) {
@@ -12,18 +12,18 @@ const columns = (board: CellData[]): Array<number> => {
   return columns;
 }
 
-const column = (board: CellData[], y: number): Array<number> => {
-  let column = new Array<number>;
+const column = (board: CellData[], x: number): Array<number> => {
+  let column = new Array<number>();
 
   for (let i = 0; i < 9; i++) {
-    column.push(board[i * 9 + y].value)
+    column.push(board[i * 9 + x].value)
   }
 
   return column;
 }
 
 const square = (board: CellData[], x: number, y: number): Array<number> => {
-  let square = new Array<number>;
+  let square = new Array<number>();
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
       square.push(board[(j + y * 3) * 9 + (i + x * 3)].value)
