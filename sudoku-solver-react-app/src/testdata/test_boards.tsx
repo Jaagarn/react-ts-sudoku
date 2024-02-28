@@ -129,15 +129,15 @@ const valid_board_hard_sudoku: number[] = [
 ];
 
 const valid_board_hard_sudoku_solution: number[] = [
-    7, 8, 2, 4, 5, 6, 1, 9, 3,
-    4, 1, 3, 2, 7, 9, 8, 5, 6,
-    5, 9, 6, 8, 1, 3, 7, 2, 4,
-    8, 7, 1, 3, 4, 5, 2, 6, 9,
-    2, 6, 5, 9, 8, 1, 4, 3, 7,
-    3, 4, 9, 5, 6, 2, 7, 1, 8,
-    9, 2, 4, 6, 5, 8, 3, 7, 1,
-    6, 5, 8, 1, 3, 7, 9, 4, 2,
-    1, 3, 7, 2, 9, 4, 6, 8, 5
+    7, 9, 2, 4, 5, 6, 8, 1, 3,
+    4, 1, 3, 7, 8, 9, 6, 2, 5,
+    5, 8, 6, 2, 1, 3, 7, 9, 4,
+    1, 5, 7, 8, 6, 4, 2, 3, 9,
+    2, 6, 8, 9, 3, 1, 4, 5, 7,
+    3, 4, 9, 5, 7, 2, 1, 6, 8,
+    9, 2, 5, 6, 4, 8, 3, 7, 1,
+    8, 7, 1, 3, 2, 5, 9, 4, 6,
+    6, 3, 4, 1, 9, 7, 5, 8, 2
 ];
 
 const valid_board_expert_sudoku: number[] = [
@@ -152,17 +152,29 @@ const valid_board_expert_sudoku: number[] = [
     0, 7, 0, 0, 0, 0, 0, 6, 0
 ];
 
-const valid_board_expert_sudoku_unverified: number[] = [
-    9, 2, 4, 7, 6, 3, 8, 5, 1,
-    7, 1, 5, 8, 0, 9, 6, 0, 3,
-    6, 8, 3, 2, 0, 4, 9, 9, 7,
-    0, 0, 0, 9, 7, 0, 4, 3, 6,
-    5, 4, 7, 0, 2, 1, 5, 8, 9,
-    3, 9, 6, 4, 8, 5, 1, 7, 2,
-    0, 0, 9, 0, 0, 8, 7, 0, 5,
-    0, 5, 0, 0, 3, 0, 2, 0, 0,
-    0, 7, 0, 0, 9, 2, 3, 6, 0
+const valid_board_expert_sudoku_solution: number[] = [
+    2, 6, 4, 8, 1, 3, 9, 5, 7,
+    5, 8, 1, 7, 4, 9, 6, 2, 3,
+    7, 9, 3, 2, 5, 6, 8, 4, 1,
+    8, 1, 5, 9, 7, 2, 4, 3, 6,
+    4, 2, 7, 3, 6, 1, 5, 8, 9,
+    9, 3, 6, 4, 8, 5, 1, 7, 2,
+    3, 4, 9, 6, 2, 8, 7, 1, 5,
+    6, 5, 8, 1, 3, 7, 2, 9, 4,
+    1, 7, 2, 5, 9, 4, 3, 6, 8
 ];
+
+const valid_board_very_hard: number[] = [
+    5, 0, 0, 0, 0, 0, 0, 0, 9,
+    0, 2, 0, 1, 0, 0, 0, 7, 0, 
+    0, 0, 8, 0, 0, 0, 3, 0, 0, 
+    0, 4, 0, 0, 0, 2, 0, 0, 0, 
+    0, 0, 0, 0, 5, 0, 0, 0, 0, 
+    0, 0, 0, 7, 0, 6, 0, 1, 0,
+    0, 0, 3, 0, 0, 0, 8, 0, 0,
+    0, 6, 0, 0, 0, 4, 0, 2, 0,
+    9, 0, 0, 0, 0, 0, 0, 0, 5
+]
 
 const invalid_board_json: string = `
 {Error"sudoku_board": [
@@ -232,8 +244,8 @@ const invalid_board_incorrect_integers_json: string = `
 
 export {
     valid_board_1_json, valid_board_easy_sudoku_almost_solved, valid_board_1, valid_board_1_columns, valid_board_1_column_4, valid_board_1_square_2_2,
-    valid_board_1_solution, valid_board_easy_sudoku, valid_board_easy_sudoku_solution,
-    valid_board_expert_sudoku, valid_board_expert_sudoku_unverified, valid_board_hard_sudoku,
+    valid_board_1_solution, valid_board_easy_sudoku, valid_board_easy_sudoku_solution, valid_board_very_hard,
+    valid_board_expert_sudoku, valid_board_expert_sudoku_solution, valid_board_hard_sudoku,
     valid_board_hard_sudoku_solution, invalid_board, invalid_board_json, invalid_board_1_solution,
     invalid_board_json_missing_key, invalid_board_few_numbers_json, invalid_board_not_list_json,
     invalid_board_incorrect_integers_json

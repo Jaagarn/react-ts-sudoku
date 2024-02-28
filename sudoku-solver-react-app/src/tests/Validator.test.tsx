@@ -1,6 +1,6 @@
 import { arrayToCells } from '../helpers/CellParser';
 import { solved, solvable, columns, column, square, solvedSet, solvableSet } from '../solver/Validator';
-import { invalid_board, invalid_board_1_solution, valid_board_1, valid_board_1_column_4, valid_board_1_columns, valid_board_1_solution, valid_board_1_square_2_2, valid_board_easy_sudoku_solution } from '../testdata/test_boards';
+import { invalid_board, invalid_board_1_solution, valid_board_1, valid_board_1_column_4, valid_board_1_columns, valid_board_1_solution, valid_board_1_square_2_2, valid_board_easy_sudoku_almost_solved, valid_board_easy_sudoku_solution } from '../testdata/test_boards';
 
 describe('testing solver helpers', () => {
   test('columns extract all columns', () => {
@@ -26,6 +26,9 @@ describe('testing solver helpers', () => {
   });
   test('solved returns false if not solved', () => {
     expect(solved(arrayToCells(invalid_board_1_solution))).toStrictEqual(false);
+  });
+  test('solved returns false if not solved', () => {
+    expect(solved(arrayToCells(valid_board_easy_sudoku_almost_solved))).toStrictEqual(false);
   });
   test('solved returns true if solved', () => {
     expect(solved(arrayToCells(valid_board_1_solution))).toStrictEqual(true);
