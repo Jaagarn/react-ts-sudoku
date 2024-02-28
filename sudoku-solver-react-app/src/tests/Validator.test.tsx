@@ -30,16 +30,16 @@ describe('testing solver helpers', () => {
   test('solved returns true if solved', () => {
     expect(solved(arrayToCells(valid_board_1_solution))).toStrictEqual(true);
   });
-  test('unsolvable returns false if not solvable', () => {
+  test('unsolvable returns false if not solvable 1', () => {
     expect(solvable(arrayToCells(invalid_board))).toStrictEqual(false);
   });
-  test('unsolvable returns false if not solvable', () => {
+  test('unsolvable returns false if not solvable 2', () => {
     expect(solvable(arrayToCells(invalid_board_1_solution))).toStrictEqual(false);
   });
-  test('solvable returns true if solvable', () => {
+  test('solvable returns true if solvable 1', () => {
     expect(solvable(arrayToCells(valid_board_1))).toStrictEqual(true);
   });
-  test('solvable returns true if solvable', () => {
-    expect(solvable(arrayToCells(valid_board_1_solution))).toStrictEqual(true);
+  test('solvable returns true if solvable 2', () => {
+    expect(solvable(arrayToCells(valid_board_1_solution))).toStrictEqual(true)  ;
   });
 });
