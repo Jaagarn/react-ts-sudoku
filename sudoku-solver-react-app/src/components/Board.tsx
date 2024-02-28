@@ -2,7 +2,7 @@ import { Cell } from "./Cell";
 import { arrayToCells } from "../helpers/CellParser"
 import { valid_board_1, valid_board_easy_sudoku } from "../testdata/test_boards";
 import { useState } from "react";
-import { findAndFillCanditates } from "../solver/Cooks";
+import { findAndFillCanditates } from "../solver/Crooks";
 
 const Board = () => {
     const initialBoard = arrayToCells(valid_board_1);

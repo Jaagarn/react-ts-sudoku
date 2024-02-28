@@ -57,20 +57,20 @@ const solved = (board: CellData[]) => {
   // Check squares
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
-      if (!solvableSet(square(board, i, j)))
+      if (!solvedSet(square(board, i, j)))
         return false;
     }
   }
 
   // Check columns
   for (let i = 0; i < 9; i++) {
-    if (!solvableSet(column(board, i)))
+    if (!solvedSet(column(board, i)))
       return false;
   }
 
   // Check rows
   for (let i = 0; i < 81; i += 9) {
-    if (!solvableSet(board.slice(i, i + 9).map((element) => Number(element.value)))) {
+    if (!solvedSet(board.slice(i, i + 9).map((element) => Number(element.value)))) {
       return false;
     }
   }

@@ -1,6 +1,6 @@
 import { CanditatesHolder } from '../helpers/CanditatesHolder';
 import { arrayToCells } from '../helpers/CellParser';
-import { findAndFillCanditates, findCanditates } from '../solver/Cooks';
+import { findAndFillCanditates, findCanditates } from '../solver/Crooks';
 import { valid_board_easy_sudoku_almost_solved, valid_board_easy_sudoku_solution, valid_board_easy_sudoku } from '../testdata/test_boards';
 
 const findCanditatesResult: Array<CanditatesHolder> = [
