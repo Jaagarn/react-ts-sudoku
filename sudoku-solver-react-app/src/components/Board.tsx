@@ -4,7 +4,8 @@ import { valid_board_1, valid_board_easy_sudoku, valid_board_expert_sudoku } fro
 import { useState } from "react";
 import { findAndFillCanditates, findCanditates } from "../solver/Crooks";
 import { solved } from "../solver/Validator";
-import { recursionStart } from "../solver/CrooksRecursion";
+import { wrap } from 'comlink'
+import type { RunCrooksRecursionWorker } from '../workers/crooksRecursion.worker';
 
 const Board = () => {
   const initialBoard = arrayToCells(valid_board_1);
@@ -12,21 +13,25 @@ const Board = () => {
   const [solving, setSolving] = useState(false);
   const [message, setMessage] = useState("Board 1");
 
-  const solveBoard = () => {
+  const solveBoard = async () => {
     let newBoard = findAndFillCanditates(board);
+
     if (solved(newBoard)) {
       setBoard(newBoard);
     } else {
-      newBoard = recursionStart(newBoard, findCanditates(newBoard));
+      const worker = new Worker(new URL('../workers/crooksRecursion.worker', import.meta.url))
+      const { recursionStart } = wrap<RunCrooksRecursionWorker>(worker)
+      const canditates = findCanditates(newBoard);
+      newBoard = await recursionStart(newBoard, canditates);
+      console.log(newBoard);
       setBoard(newBoard);
     }
   }
 
-  const handleSolve = () => {
+  const handleSolve = async () => {
     setMessage("Solving...");
     setSolving(true);
-    console.log(solving)
-    solveBoard();
+    await solveBoard();
     setMessage("Solved");
     setSolving(false);
   };

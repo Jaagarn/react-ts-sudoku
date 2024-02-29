@@ -23,8 +23,8 @@ const findAndFillCanditates = (board: CellData[]): CellData[] => {
     placingNumbers = false;
     for (let i = 0; i < canditatesHolders.length; i++) {
       let canditatesHolder = canditatesHolders[i];
-      if (canditatesHolder.getCanditatesAmount() === 1) {
-        board[canditatesHolder.y * 9 + canditatesHolder.x].value = canditatesHolder.getCanditate();
+      if (canditatesHolder.canditates.size === 1) {
+        board[canditatesHolder.y * 9 + canditatesHolder.x].value = canditatesHolder.canditates.values().next().value;
         placingNumbers = true;
       }
     }
