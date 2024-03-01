@@ -1,8 +1,8 @@
 import { Cell } from "./Cell";
-import { arrayToCells } from "../helpers/CellParser"
+import { arrayToCells, cellsToString, stringToCells } from "../helpers/CellParser"
 import { valid_board_1, valid_board_easy_sudoku, valid_board_expert_sudoku } from "../testdata/test_boards";
 import { useState } from "react";
-import { findAndFillCanditates, findCanditates } from "../solver/Crooks";
+import { findAndFillCanditates } from "../solver/Crooks";
 import { solved } from "../solver/Validator";
 import { wrap } from 'comlink'
 import type { RunCrooksRecursionWorker } from '../workers/crooksRecursion.worker';
@@ -20,11 +20,9 @@ const Board = () => {
       setBoard(newBoard);
     } else {
       const worker = new Worker(new URL('../workers/crooksRecursion.worker', import.meta.url))
-      const { recursionStart } = wrap<RunCrooksRecursionWorker>(worker)
-      const canditates = findCanditates(newBoard);
-      newBoard = await recursionStart(newBoard, canditates);
-      console.log(newBoard);
-      setBoard(newBoard);
+      const { recursionStartString } = wrap<RunCrooksRecursionWorker>(worker);
+      let stringBoard = await recursionStartString(cellsToString(newBoard));
+      setBoard(stringToCells(stringBoard));
     }
   }
 
