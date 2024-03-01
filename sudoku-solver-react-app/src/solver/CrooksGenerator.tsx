@@ -1,11 +1,11 @@
 import { CanditatesHolder } from "../helpers/CanditatesHolder"
-import { cellsToString, stringToCells } from "../helpers/CellParser";
+import { stringToCells } from "../helpers/CellParser";
 import { CellData } from "./CellData"
 import { findCanditates } from "./Crooks";
 import { solvable, solved } from "./Validator";
 import _ from "lodash"
 
-function* recursionGenerator(board: CellData[], canditates: CanditatesHolder[], newCell: CellData): Generator<CellData[]> {
+const recursionGenerator = function* (board: CellData[], canditates: CanditatesHolder[], newCell: CellData): Generator<CellData[]> {
   let clonedBoard = _.cloneDeep(board);
   clonedBoard[newCell.id] = newCell;
 
@@ -29,7 +29,7 @@ function* recursionGenerator(board: CellData[], canditates: CanditatesHolder[], 
   return new Array<CellData>();
 }
 
-function* recursionStartGenerator(board: CellData[], canditates: CanditatesHolder[]): Generator<CellData[]> {
+const recursionStartGenerator = function* (board: CellData[], canditates: CanditatesHolder[]): Generator<CellData[]> {
   const firstCanditate = canditates[0];
   const id = firstCanditate.y * 9 + firstCanditate.x;
   const iterator = firstCanditate.canditates.values();
@@ -44,7 +44,7 @@ function* recursionStartGenerator(board: CellData[], canditates: CanditatesHolde
   return new Array<CellData>();
 }
 
-function* recursionStartStringGenerator(board: string): Generator<CellData[]> {
+const recursionStartStringGenerator = function* (board: string): Generator<CellData[]> {
   let boardArray = stringToCells(board);
   let canditates = findCanditates(boardArray);
   yield* recursionStartGenerator(boardArray, canditates);
