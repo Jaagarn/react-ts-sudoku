@@ -9,11 +9,16 @@ needs to use the first part of the algorithm to solve them. So it dosen't need b
 to not freeze the ui while calculating.
 
 TODO:
+
 Make the ui nicer, maybe use Material ui
+
 Make the user be able to input their own puzzles. Solved and Solvable functions can be used to verify
+
 Make the generator branch use a web worker also so it can will display the "thought" process of the algorithm.
 
+
 Optimize the brute force solution with more constraints
+
 Utilize Crooks methods more
 
 
