@@ -51,7 +51,7 @@ const Board = () => {
 
   return (
     <>
-      <div>
+      <div className="board-container">
         <div className="board-style">
           {board.map((cell) => (
             <Cell
@@ -64,16 +64,14 @@ const Board = () => {
         </div>
         <p>{message}</p>
         {!solving && (
-          <>
+          <div className="buttons-container">
             <button onClick={handleSolve}>Solve</button>
             <button onClick={handleBoard1}>Board 1</button>
             <button onClick={handleBoard2}>Board 2</button>
             <button onClick={handleBoard3}>Board 3</button>
-          </>
+          </div>
         )}
-
       </div>
-
     </>)
 }
 
