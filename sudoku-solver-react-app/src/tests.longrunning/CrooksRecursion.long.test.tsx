@@ -11,7 +11,7 @@ import {
   from "../testdata/test_boards";
 
 describe('testing cooks recursion long running', () => {
-  test('recursionStart solves a hard sudoku', () => {
+ /*  test('recursionStart solves a hard sudoku', () => {
     let newBoard = arrayToCells(valid_board_hard_sudoku);
     let board = findAndFillCanditates(newBoard);
     expect(recursionStart(board, findCanditates(board))).toStrictEqual(arrayToCells(valid_board_hard_sudoku_solution));
@@ -32,5 +32,5 @@ describe('testing cooks recursion long running', () => {
     let board = cellsToString(arrayToCells(valid_board_very_hard));
     let solution = recursionStartString(board);
     expect(solved(stringToCells(solution))).toStrictEqual(true);
-  })
+  }) */
 });

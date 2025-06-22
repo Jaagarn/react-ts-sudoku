@@ -6,6 +6,8 @@ import { findAndFillCanditates } from "../solver/Crooks";
 import { solved } from "../solver/Validator";
 import { wrap } from 'comlink'
 import type { RunCrooksRecursionWorker } from '../workers/crooksRecursion.worker';
+import { recursionStartStringGenerator } from "../solver/CrooksGenerator";
+import { CellData } from "../solver/CellData";
 
 const Board = () => {
   const initialBoard = arrayToCells(valid_board_1);
@@ -13,18 +15,56 @@ const Board = () => {
   const [solving, setSolving] = useState(false);
   const [message, setMessage] = useState("Board 1");
 
+  const runSolverStepByStep = (generator: Generator<CellData[], any, any>) => {
+    return new Promise((resolve) => {
+      const processNextStep = () => {
+        // Get the next step from the generator
+        const result = generator.next();
+
+        if (!result.done) {
+          // If the generator is not finished, update the state
+          const newBoardState = result.value;
+
+          setBoard(newBoardState);
+          setMessage(cellsToString(newBoardState));
+
+          // Request the next animation frame to process the next step
+          // This gives React time to re-render before the next step is processed
+          requestAnimationFrame(processNextStep);
+
+        } else {
+          // When the generator is done, resolve the promise
+          resolve(result.value);
+        }
+      };
+
+      // Start the process
+      requestAnimationFrame(processNextStep);
+    });
+  };
+
   const solveBoard = async () => {
     let newBoard = findAndFillCanditates(board);
 
     if (solved(newBoard)) {
       setBoard(newBoard);
+
     } else {
-      const worker = new Worker(new URL('../workers/crooksRecursion.worker', import.meta.url))
-      const { recursionStartString } = wrap<RunCrooksRecursionWorker>(worker);
-      let stringBoard = await recursionStartString(cellsToString(newBoard));
-      setBoard(stringToCells(stringBoard));
+
+      /* 
+          const worker = new Worker(new URL('../workers/crooksRecursion.worker', import.meta.url))
+          const { recursionStartString } = wrap<RunCrooksRecursionWorker>(worker);
+          let stringBoard = await recursionStartString(cellsToString(newBoard)); */
+          
+      // Start the generator
+      const recursiveGenerator = recursionStartStringGenerator(cellsToString(newBoard));
+
+      // Run the step-by-step process
+      await runSolverStepByStep(recursiveGenerator);
     }
-  }
+
+  };
+
 
   const handleSolve = async () => {
     setMessage("Solving...");
