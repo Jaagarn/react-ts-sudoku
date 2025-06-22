@@ -2,10 +2,10 @@
 import { CellDataProps } from "../solver/CellData"
 
 const Cell = ({ value, id, x, y }: CellDataProps) => {
-    let values = `${value}`
+    let values = value === 0 ? "" : `${value}`;
     return (
         <>
-            <input className="cell-style" type="text" name="digit-input" value={values} readOnly={true}/>
+            <input className="cell-style" type="text" name="digit-input" value={values} readOnly={true} />
         </>
     )
 }
