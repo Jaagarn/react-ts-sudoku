@@ -50,7 +50,6 @@ const getCanditates = (board: CellData[], x: number, y: number): Set<number> => 
 
   setDifference(canditates, findSquareCanditates(board, x, y));
 
-
   return canditates;
 }
 
