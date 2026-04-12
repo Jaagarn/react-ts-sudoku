@@ -8,18 +8,22 @@ To run it just clone the repo, _npm run install_, _npm run start_. (You can run 
 needs to use the first part of the algorithm to solve them. So it dosen't need brute force. The third one is a hard sudoku and will take around a minute to solve with bruteforce. It runs in a web worker
 to not freeze the ui while calculating.
 
+From commit
+636cdb4f090905183f319b3b5b93e1696f3fe477
+AI has been used in a browser for questions and code generation, but not yet in an ide
+
 TODO:
 
 Make the ui nicer, maybe use Material ui
 
 Make the user be able to input their own puzzles. Solved and Solvable functions can be used to verify
 
-Make the generator branch use a web worker also so it can will display the "thought" process of the algorithm.
 
+Make the generator branch use a web worker also so it can will display the "thought" process of the algorithm. Done
 
-Optimize the brute force solution with more constraints
+Optimize the brute force solution with more constraints. Done
 
-Utilize Crooks methods more
+Utilize Crooks methods more. Done
 
 
 
