@@ -24,7 +24,11 @@ const findAndFillCanditates = (board: CellData[]): CellData[] => {
     for (let i = 0; i < canditatesHolders.length; i++) {
       let canditatesHolder = canditatesHolders[i];
       if (canditatesHolder.canditates.size === 1) {
-        board[canditatesHolder.y * 9 + canditatesHolder.x].value = canditatesHolder.canditates.values().next().value;
+        const canditate = canditatesHolder.canditates.values().next().value;
+        if(canditate === undefined)
+          throw new Error("Canditatesholder has an undefined value");
+        
+        board[canditatesHolder.y * 9 + canditatesHolder.x].value = canditate;
         placingNumbers = true;
       }
     }

@@ -1,8 +1,9 @@
 import { expose } from 'comlink'
-import { recursionStartString } from '../solver/CrooksRecursion'
+import { recursionStartString, recursionStartStringWithProgress } from '../solver/CrooksRecursion'
 
 const crooksRecursionWorker = {
-    recursionStartString
+    recursionStartString,
+    recursionStartStringWithProgress
 }
 
 export type RunCrooksRecursionWorker = typeof crooksRecursionWorker
